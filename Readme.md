@@ -43,3 +43,9 @@ To be able to use the library install
 ```
 	pip install -U pytest
 ```
+
+### Use pytest
+
+```
+	pytest name.py
+```
