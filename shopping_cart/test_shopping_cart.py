@@ -73,5 +73,48 @@ class TestShoppingCart(unittest.TestCase):
 		# revisa si contiene el nombre del producto
 		self.assertRegex(self.pan.code(),self.pan.name)
 
+	#validar de forma manual utilizando el metodo fail
+	def test_fail(self):
+		if 2 > 3:
+			self.fail("Dos no es mayor a tres!")
+	"""
+	salida si falla
+		....F.....
+	======================================================================
+	FAIL: test_fail (__main__.TestShoppingCart)
+	----------------------------------------------------------------------
+	Traceback (most recent call last):
+	  File "shopping_cart/test_shopping_cart.py", line 79, in test_fail
+	    self.fail("Dos no es mayor a tres")
+	AssertionError: Dos no es mayor a tres
+
+	----------------------------------------------------------------------
+	Ran 10 tests in 0.004s
+
+	FAILED (failures=1)
+	"""
+
+	#saltar una prueba para que no se ocupe
+	#desarrollador conoce
+	@unittest.skip("Colocamos nuestros motivos")
+	def test_prueba_skip(self):
+		pass
+	"""
+	.........s.
+	----------------------------------------------------------------------
+	Ran 11 tests in 0.003s
+
+	OK (skipped=1)
+	para tener mas informacion colocar al final la bandera -v
+	"""
+	#cuando el desarrollador desconoce puede o no puede ejecutarse
+	#True la prueba se salta False la prueba se ejecuta
+	#@unittest.skipIf(True,"Colocamos nuestros motivos")
+	#evaluando a falso si es false no se ejecuta si es True no se salta
+	@unittest.skipUnless(False,"Colocamos nuestros motivos")
+	def test_prueba_skip2(self):
+		pass
+
+
 if __name__ == '__main__':
 	unittest.main()
