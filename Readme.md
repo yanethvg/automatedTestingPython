@@ -29,3 +29,17 @@ Always to see more information
 ```
 	python name.py -v
 ```
+
+## Using assert
+
+```
+	assert True, "Mensaje extra"
+```
+
+## Pytest
+
+To be able to use the library install
+
+```
+	pip install -U pytest
+```
