@@ -1,5 +1,5 @@
 import unittest
-from shopping_cart import Item, ShoppingCart
+from shopping_cart import Item, ShoppingCart,NotExistsItemError
 
 class TestShoppingCart(unittest.TestCase):
 	#realizar acciones antes de realizar la prueba unitaria
@@ -36,7 +36,8 @@ class TestShoppingCart(unittest.TestCase):
 		self.assertEqual(self.pan.name,"Pan")
 
 	def test_nombre_producto_igual_jugo(self):
-		self.assertEqual(self.jugo.name,"Jugo")
+		#compara dos valores
+		self.assertEqual(self.jugo.name,"Jugo") # == 
 
 	def test_contiene_productos(self):
 		self.assertTrue(self.shopping_cart.contains_items())
@@ -44,6 +45,33 @@ class TestShoppingCart(unittest.TestCase):
 	def test_no_contiene_productos(self):
 		self.shopping_cart.remove_item(self.pan)
 		self.assertFalse(self.shopping_cart.contains_items())
+
+	#comprobar si dos objetos son el mismo
+	def test_obtener_producto_pan(self):
+		item = self.shopping_cart.get_item(self.pan)
+		# se puede utilizar dos en una misma funcion
+		#compara dos objetos 
+		# se puede colocar mas de un assert
+		self.assertIs(item,self.pan) # is evaluamos un objeto
+		self.assertIsNot(item,self.jugo)
+
+	def test_exception_al_obtener_jugo(self):
+		# con with y assertRaises se puede agregar la excepcion creada
+		with self.assertRaises(NotExistsItemError):
+			item = self.shopping_cart.get_item(self.jugo)
+
+	def test_total_con_un_producto(self):
+		total = self.shopping_cart.total()
+		# sea mayor
+		self.assertGreater(total,0)
+		# sea menor
+		self.assertLess(total,self.pan.price + 1.0)
+		# es igual a lo que debe de ser
+		self.assertEqual(total, self.pan.price)
+
+	def test_codigo_pan(self):
+		# revisa si contiene el nombre del producto
+		self.assertRegex(self.pan.code(),self.pan.name)
 
 if __name__ == '__main__':
 	unittest.main()
