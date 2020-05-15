@@ -1,0 +1,35 @@
+Se puede hacer una cobertura para saber la calidad del software
+
+Name               Stmts   Miss  Cover
+--------------------------------------
+shopping_cart.py      25     25     0%
+
+Ni una sola linea de mi codigo fue ejecutada Cover
+Si queremos que ese porcentaje cambie se deben correr las pruebas unitarias
+
+Despues de ejecutar: coverage run shopping_cart.py
+
+Name               Stmts   Miss  Cover
+--------------------------------------
+shopping_cart.py      25     12    52%
+
+Despues de ejecutar para ver mas informacion: coverage report -m shopping_cart.py
+el missing son las lineas de codigo que no se ejecutan
+Name               Stmts   Miss  Cover   Missing
+------------------------------------------------
+shopping_cart.py      25     12    52%   8-9, 12, 15, 21, 24, 27, 30, 33-36, 39
+
+Para que sea del 100% se tienen dos opciones
+1. creemos una prueba que ejecute cada funcion
+2. Eliminar las lineas de codigo que no se usan
+
+GENERANDO REPORTES HTML
+Sacar el reporte de las pruebas: coverage report test_shopping_cart.py
+Name                    Stmts   Miss  Cover
+-------------------------------------------
+test_shopping_cart.py      44     44     0%
+
+Para sacar el html debe ejecutarse: coverage html test_shopping_cart.py
+genera una carpeta llamada htmlcov con varios archivos
+ahora debe servirse para poder ver la informacion
+levantando un servidor con: python -m http.server

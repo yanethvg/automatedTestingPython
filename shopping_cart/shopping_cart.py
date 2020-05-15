@@ -10,7 +10,7 @@ class Item:
 
 	def code(self):
 		return "{}123456789".format(self.name)
-
+		
 	def __str__(self):
 		return self.name
 

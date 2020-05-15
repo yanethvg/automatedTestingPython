@@ -49,3 +49,33 @@ To be able to use the library install
 ```
 	pytest name.py
 ```
+
+### Install coverage
+```
+	pip install coverage
+```
+
+### Generate coverage
+```
+	coverage report name.py
+```
+
+### Generate and see information coverage
+```
+	coverage report -m name.py
+```
+
+### Generate testing coverage
+```
+	coverage run name.py
+```
+
+### Generate html coverage
+```
+	coverage report test_shopping_cart.py
+```
+
+### Server with Python
+```
+	python -m http.server
+```

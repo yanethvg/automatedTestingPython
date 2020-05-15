@@ -71,7 +71,8 @@ class TestShoppingCart(unittest.TestCase):
 
 	def test_codigo_pan(self):
 		# revisa si contiene el nombre del producto
-		self.assertRegex(self.pan.code(),self.pan.name)
+		#self.assertRegex(self.pan.code(),self.pan.name) este python 3.7 
+		self.assertRegexpMatches(self.pan.code(),self.pan.name) #python 2.7
 
 	#validar de forma manual utilizando el metodo fail
 	def test_fail(self):
