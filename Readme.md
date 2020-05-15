@@ -1,15 +1,17 @@
-# Comando para ejecutar Doctest
+# Python test
+
+## Command to run Doctest
 ```
-	python -m doctest nombre.extension
+	python -m doctest name.ext
 ```
 
-# Comando para ver mas detalle Doctest
+## Command to see more detail Doctest
 ```
-	python -m doctest -v nombre.py
+	python -m doctest -v name.py
 ```
-# Para evitar el comando doctest 
+## To avoid the doctest command
 
-Se puede agregar esta validacion en el archivo
+This validation can be added in the file
 
 ```
 	if __name__ == '__main__':
@@ -17,13 +19,13 @@ Se puede agregar esta validacion en el archivo
 		doctest.testmod()
 ```
 
-Despues solo ejecutar
+Then just run
 ```
-	python nombre.py
+	python name.py
 ```
 
-Siempre para poder ver mas información
+Always to see more information
 
 ```
-	python algoritmos.py -v
+	python name.py -v
 ```
