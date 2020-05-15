@@ -1,2 +1,12 @@
 # python -m doctest test.txt
 -->si no sale nada es porque todo funciona bien
+
+# se puede hacer con archivos python pero debe agregarse en un string con triple comilla
+asi
+"""
+>>> ejemplo(15)
+15
+
+"""
+# Se recomienda poner en la parte de arriba el comentario siempre para testear
+
